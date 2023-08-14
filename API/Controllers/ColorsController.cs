@@ -25,9 +25,7 @@ namespace API.Controllers
             int randomIndex = random.Next(0, colors.Count);
 
             // Get the random value from the list
-            var randomName = colors.Where(c=>c.Id == randomIndex).FirstOrDefault();
-
-            Console.WriteLine($"Random name: {randomName}");
+            var randomName = colors.Where(c=>c.Id == randomIndex+1).FirstOrDefault();
 
             return randomName;
         }
