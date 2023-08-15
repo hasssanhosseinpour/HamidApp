@@ -9,17 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   title = 'HamidApp';
-  color : any;
+  //color: any;
+  color: any = { hexa: '#FFFFFF' };
 
   constructor(private http:HttpClient){}
 
   ngOnInit(): void {
-    this.changeColor()
-
+    this.changeColor();
   }
   changeColor(){
     this.http.get('https://localhost:7071/api/colors').subscribe({
-      next: response=>{this.color = response, console.log(this.color)},
+      next: response=> this.color = response,
       error: error => console.log(error),
       complete: () => console.log("Request is completed!")
     })

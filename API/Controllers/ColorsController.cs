@@ -1,6 +1,7 @@
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -15,8 +16,8 @@ namespace API.Controllers
             
         }
         [HttpGet]
-        public ActionResult<AppColor> GetColor(){
-            var colors = _context.Colors.ToList();
+        public async Task<ActionResult<AppColor>> GetColor(){
+            var colors = await _context.Colors.ToListAsync();
 
             // Create a Random instance
             Random random = new Random();
